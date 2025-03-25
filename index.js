@@ -1,12 +1,12 @@
-// Importar componentes
+// Importar components
 import { renderHeader } from './components/header.js'
 import { renderMainContent } from './components/main.js'
 import { renderFooter } from './components/footer.js'
 
-// Importar utilidades
+// Importar utils
 import { printCardThroughTemplate, zapatillas } from './utils/utils.js'
 
-// Función para renderizar zapatillas
+// Print zapatillas
 const printZapas = (zapas) => {
   const divZapas = document.querySelector('#zapatillas')
   divZapas.innerHTML = zapas
@@ -29,7 +29,7 @@ const generateBrandOptions = () => {
   })
 }
 
-// Función auxiliar para obtener zapatillas aleatorias
+// Obtener zapatillas aleatorias
 function getRandomZapatillas(count) {
   const shuffled = [...zapatillas].sort(() => 0.5 - Math.random())
   return shuffled.slice(0, count)
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
       container.insertAdjacentElement('beforebegin', message)
 
-      // SOLUCIÓN DEFINITIVA: generación explícita y directa del HTML
+    
       const randomZapas = getRandomZapatillas(3)
       const randomZapasHtml = randomZapas
         .map((zapa) => printCardThroughTemplate(zapa))
